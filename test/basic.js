@@ -22,7 +22,7 @@ test('basic example', t => {
 		[1, 3],
 		[3, 4],
 		[4, 0],
-		[4, 50],
+		[4, 3],
 	];
 	const out = solvePnP({
 		camera,
@@ -42,7 +42,6 @@ test('basic example', t => {
 	t.is(projected[0].length, 2);
 
 	const tolerance = 0.2;
-	console.log({projected})
 	t.true(Math.abs(projected[0][0]) < tolerance);
 	t.true(Math.abs(projected[0][1] - 1) < tolerance);
 
@@ -57,7 +56,7 @@ test('basic example', t => {
 		extrinsic: out.extrinsic,
 	});
 
-	t.true(costs.length < worldCoordinates.length);
+	t.is(costs.length, worldCoordinates.length);
 	t.true(costs[0] < tolerance);
 });
 

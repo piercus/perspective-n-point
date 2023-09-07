@@ -56,7 +56,7 @@ Warning, there are often multiple different solution for the same `solvePnP`, pl
 ## solvePnP advanced usage
 
 ```js
-const {solvePnP} = require('perspective-n-point');
+const {solvePnP, getCamera, project, getExtrinsic} = require('perspective-n-point');
 
 const camera = getCamera({
 	resolution: [1920, 1080], 
@@ -66,7 +66,7 @@ const camera = getCamera({
 
 const extrinsic = getExtrinsic({
 	camera,
-	cameraPosition : [-10, -10, 5], 
+	position : [-10, -10, 5], 
 	target3dPoint: [0, 0, 0], 
 	target2dPoint: [960, 540]
 })

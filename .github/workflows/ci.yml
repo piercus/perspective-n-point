@@ -23,7 +23,8 @@ jobs:
           key: ${{ runner.os }}-opencv-build
       - run: npm ci
       - run: mkdir -p opencv
-      - run: npm run build-opencv
+      - run: npm install -g npx
+      - run: npx build-opencv rebuild
       - name: Save cached OpenCV
         id: opencv-install
         uses: actions/cache/save@v3

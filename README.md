@@ -93,6 +93,7 @@ const out = solvePnP({
 		[4,0],
 		[4,3]
 	],
+	ransac: true,
 	extrinsincGuess: extrinsic
 })
 

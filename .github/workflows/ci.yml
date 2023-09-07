@@ -1,0 +1,36 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+    env:
+      OPENCV_BUILD_ROOT: ${{ github.workspace }}/opencv
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Restore cached OpenCV first time
+        id: opencv-install-first
+        uses: actions/cache/restore@v3
+        with:
+          path: opencv
+          key: ${{ runner.os }}-opencv-build
+      - run: npm ci
+      - name: Save cached OpenCV
+        id: opencv-install
+        uses: actions/cache/save@v3
+        with:
+          path: opencv
+          key: ${{ runner.os }}-opencv-custom-build
+      - run: npm test
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

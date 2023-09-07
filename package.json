@@ -1,0 +1,51 @@
+{
+  "name": "perspective-n-point",
+  "version": "1.0.0",
+  "description": "Perspective N Point utilities for Node.js",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piercus/perspective-n-point.git"
+  },
+  "keywords": [
+    "3d",
+    "2d",
+    "opencv",
+    "calibration",
+    "camera",
+    "pinhole",
+    "pnp",
+    "solvepnp",
+    "solvepnpransac",
+    "ransac"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  },
+  "author": "Pierre Colle <piercus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/piercus/perspective-n-point/issues"
+  },
+  "homepage": "https://github.com/piercus/perspective-n-point#readme",
+  "devDependencies": {
+    "ava": "^5.3.1",
+    "semantic-release": "^21.1.1",
+    "xo": "^0.56.0"
+  },
+  "dependencies": {
+    "@u4/opencv4nodejs": "^6.5.2"
+  }
+}
